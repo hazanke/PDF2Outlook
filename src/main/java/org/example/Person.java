@@ -15,7 +15,7 @@ public class Person {
 
         Person p = new Person();
         //wenn das 2. Zeichen der Zeile ein Leerzeichen ist, gibt das 1. Zeichen die Stimme an.
-        if (PDFline.substring(1,2).equals(" ")){
+        if (PDFline.charAt(1) == ' '){
             switch (PDFline.substring(0,1)){
                 case "S":
                     p.Stimme = "Sopran";
@@ -34,11 +34,7 @@ public class Person {
             }
 
             //wenn eine Person einer Stimme zugeordnet ist, ist sie 'Aktiv".
-            if (p.Stimme != ""){
-                p.Aktiv=true;
-            }else {
-                p.Aktiv=false;
-            }
+            p.Aktiv= !p.Stimme.isEmpty();
 
         }
         return p;
