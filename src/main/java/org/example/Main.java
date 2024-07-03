@@ -1,21 +1,22 @@
 package org.example;
 
-import org.apache.pdfbox.Loader;
-import org.apache.pdfbox.pdmodel.PDDocument;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.List;
+
+import static org.example.PDFfile.readPDF;
+import static org.example.Person.createPerson;
 
 public class Main {
     public static void main(String[] args) {
 
-        try {
-            File file = new File("Geburtstagsliste.pdf");
-            PDDocument document = Loader.loadPDF(file);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        //PDF-Liste in einzelne Zeilen zerlegen. Jede Zeile entspricht einer Person (unnötige Zeilen werden gefiltert)
+        List<String> PDFlines = readPDF("C:\\Users\\hans.SERVER\\IdeaProjects\\PDFtoOffice\\Data\\Geburtstagsliste.pdf");
+
+        //aus jeder Zeile ein Personen-Objekt erzeugen
+        for(int i=0; i<PDFlines.size(); i++){
+            Person p = createPerson(PDFlines.get(i));
+
+            System.out.println(p.toString());
         }
-
-
     }
 }
