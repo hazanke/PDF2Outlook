@@ -1,8 +1,8 @@
 package org.example;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+
+@SuppressWarnings("ALL")
 public class Person {
 
     private String Stimme;
@@ -78,7 +78,7 @@ public class Person {
         if (lineParts[p.PLZpos + 2].equals("+49")) {
             p.Mobil = lineParts[p.PLZpos + 2];
             for (int i = p.PLZpos + 3; i < lineParts.length - 2; i++) {
-                p.Mobil = p.Mobil + lineParts[i];
+                p.Mobil += lineParts[i];
             }
         }
 
@@ -86,7 +86,7 @@ public class Person {
         // die Anschrift beginnt 2 Positionen hinter dem Vornamen und endet vor der Postleitzahl
             p.Anschrift=lineParts[p.VNpos+2];
             for (int i = p.VNpos+3; i< p.PLZpos; i++){
-                    p.Anschrift= p.Anschrift +" " + lineParts[i];
+                    p.Anschrift= STR."\{p.Anschrift} \{lineParts[i]}";
 
                 }
 
@@ -101,4 +101,6 @@ public class Person {
 
         return p;
     }
+
+
 }

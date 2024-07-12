@@ -16,11 +16,11 @@ public class Main {
         List<String> PDFlines = readPDF("C:\\Users\\hans.SERVER\\IdeaProjects\\PDFtoOffice\\Data\\Geburtstagsliste.pdf");
 
         //aus jeder Zeile ein Personen-Objekt erzeugen
-        for(int i=0; i<PDFlines.size(); i++){
-            Person p = createPerson(PDFlines.get(i));
+        for (String pdFline : PDFlines) {
+            Person p = createPerson(pdFline);
             chor.add(p);
 
-            //System.out.println(p.toString());
+            System.out.println(STR."Mitglieder im Chor: \{chor.size()}");
         }
     }
 }
