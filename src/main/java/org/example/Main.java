@@ -20,7 +20,7 @@ public class Main {
             Person p = createPerson(PDFlines.get(i));
             chor.add(p);
 
-            System.out.println(p.toString());
+            //System.out.println(p.toString());
         }
     }
 }
